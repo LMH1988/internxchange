@@ -5,95 +5,82 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>InternXchange | Peer Skill Swap</title>
 
-  <!-- Just pulling in a cleaner font so it doesn’t look like every other default project -->
+  <!-- Clean font that makes everything feel less default and more intentional -->
   <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600;700&display=swap" rel="stylesheet">
 
-  <!-- Linking to the CSS so the thing actually looks good -->
+  <!-- Linking to our styling — so this thing doesn't look like 1999 -->
   <link rel="stylesheet" href="style.css" />
 </head>
 
 <body>
 
-  <!-- Hero section: this is the bold first impression bit -->
+  <!-- 🔥 Hero: First impressions matter -->
   <header class="hero">
     <div class="hero-content">
-      <!-- Main title — short and punchy -->
       <h1>InternXchange</h1>
-
-      <!-- Quick explainer that gives some vibe -->
       <p class="tagline">Rewiring routes into tech — one peer swap at a time.</p>
 
-      <!-- Buttons to move people around the page -->
+      <!-- These buttons now scroll to the correct sections below -->
       <div class="cta-buttons">
-        <a href="#swapBoard" class="btn primary">Add Your Skills</a>
+        <a href="#skillSwap" class="btn primary">Add Your Skills</a>
         <a href="#howItWorks" class="btn secondary">How It Works</a>
       </div>
     </div>
   </header>
 
- <!-- HOW IT WORKS SECTION -->
-<section class="how-it-works">
-  <h2>How It Works</h2>
-  
-  <div class="steps">
-    <!-- Step 1 -->
-    <div class="step">
-      <h3>1. Share Your Skills</h3>
-      <p>Add what you can offer — no matter how small. Every skill matters.</p>
+  <!-- 📚 How It Works Section -->
+  <section id="howItWorks" class="how-it-works">
+    <h2>How It Works</h2>
+    
+    <div class="steps">
+      <div class="step">
+        <h3>1. Share Your Skills</h3>
+        <p>Add what you can offer — no matter how small. Every skill matters.</p>
+      </div>
+
+      <div class="step">
+        <h3>2. Say What You Need</h3>
+        <p>List what you want to learn — technical, soft skills, anything!</p>
+      </div>
+
+      <div class="step">
+        <h3>3. Match & Connect</h3>
+        <p>Find others on the board and start helping each other grow.</p>
+      </div>
     </div>
+  </section>
 
-    <!-- Step 2 -->
-    <div class="step">
-      <h3>2. Say What You Need</h3>
-      <p>List what you want to learn — technical, soft skills, anything!</p>
+  <!-- 🤝 Skill Swap Section -->
+  <section id="skillSwap" class="skill-swap">
+    <h2>Join the Skill Swap Board</h2>
+    <p>Whether you're just starting out or sharpening your skills — this is your space.</p>
+
+    <!-- 📝 Form to collect swap info -->
+    <form id="swapForm" class="swap-form" aria-label="Skill Swap Form">
+      <input type="text" id="name" placeholder="Your name" required>
+      <input type="text" id="offer" placeholder="I can offer..." required>
+      <input type="text" id="want" placeholder="I want to learn..." required>
+      <button type="submit">Add Me</button>
+    </form>
+
+    <!-- 🧾 Live skill board to show submissions -->
+    <div class="board-container">
+      <h3>Live Skill Swaps</h3>
+      <ul id="swapBoard" class="swap-board"></ul>
     </div>
+  </section>
 
-    <!-- Step 3 -->
-    <div class="step">
-      <h3>3. Match & Connect</h3>
-      <p>Find others on the board and start helping each other grow.</p>
+  <!-- 💡 Why This Matters -->
+  <section class="why-matters" id="why">
+    <h2>Why This Matters</h2>
+    <div class="impact-text">
+      <p>The routes into tech shouldn’t feel locked behind experience you can’t get, or unpaid roles you can’t afford to take.</p>
+      <p>This project is my way of showing what’s possible when we build our own bridges — when early talent gets seen, supported, and valued for what they bring.</p>
+      <p>I built this to prove a point — but more importantly, to start a conversation.</p>
     </div>
-  </div>
-</section>
+  </section>
 
-  <!-- SKILL SWAP SECTION -->
-<section class="skill-swap">
-  <h2>Join the Skill Swap Board</h2>
-  <p>Whether you're just starting out or sharpening your skills — this is your space.</p>
-
-  <!-- The Form -->
-  <form id="swapForm" class="swap-form">
-    <!-- I made sure the fields are clearly labelled and required -->
-    <input type="text" id="name" placeholder="Your name" required>
-    <input type="text" id="offer" placeholder="I can offer..." required>
-    <input type="text" id="want" placeholder="I want to learn..." required>
-    <button type="submit">Add Me</button>
-  </form>
-
-  <!-- The Board -->
-  <div class="board-container">
-    <h3>Live Skill Swaps</h3>
-    <ul id="swapBoard" class="swap-board"></ul>
-  </div>
-</section>
-<!-- WHY THIS MATTERS SECTION -->
-<section class="why-matters">
-  <h2>Why This Matters</h2>
-  <div class="impact-text">
-    <p>
-      The routes into tech shouldn’t feel locked behind experience you can’t get, or unpaid roles you can’t afford to take. 
-    </p>
-    <p>
-      This project is my way of showing what’s possible when we build our own bridges — when early talent gets seen, 
-      supported, and valued for what they bring.
-    </p>
-    <p>
-      I built this to prove a point — but more importantly, to start a conversation.
-    </p>
-  </div>
-</section>
-
-  <!-- JS for later interactivity -->
+  <!-- 🔗 Script to make the form actually do something -->
   <script src="script.js"></script>
 </body>
 </html>
