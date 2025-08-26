@@ -56,9 +56,27 @@
   </div>
 </section>
 
-  <section id="swapBoard">
-    <!-- Form and live skill swap board will drop in here -->
-  </section>
+  <!-- SKILL SWAP SECTION -->
+<section class="skill-swap">
+  <h2>Join the Skill Swap Board</h2>
+  <p>Whether you're just starting out or sharpening your skills — this is your space.</p>
+
+  <!-- The Form -->
+  <form id="swapForm" class="swap-form">
+    <!-- I made sure the fields are clearly labelled and required -->
+    <input type="text" id="name" placeholder="Your name" required>
+    <input type="text" id="offer" placeholder="I can offer..." required>
+    <input type="text" id="want" placeholder="I want to learn..." required>
+    <button type="submit">Add Me</button>
+  </form>
+
+  <!-- The Board -->
+  <div class="board-container">
+    <h3>Live Skill Swaps</h3>
+    <ul id="swapBoard" class="swap-board"></ul>
+  </div>
+</section>
+
 
   <!-- JS for later interactivity -->
   <script src="script.js"></script>
