@@ -1,14 +1,16 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-  <meta charset="UTF-8">
-  <title>InternXchange</title>
-  <link rel="stylesheet" href="style.css">
-</head>
 <body>
-  <h1>Welcome to InternXchange</h1>
-  <p>A peer-to-peer experience swap for early tech talent.</p>
-  <button onclick="alert('Coming soon!')">Explore Matches</button>
+  <h1>InternXchange</h1>
+  <p>A place to swap tech skills and experiences.</p>
+
+  <form id="swapForm">
+    <input type="text" id="name" placeholder="Your name" required>
+    <input type="text" id="offer" placeholder="I can offer..." required>
+    <input type="text" id="want" placeholder="I want to learn..." required>
+    <button type="submit">Add Me</button>
+  </form>
+
+  <h2>Skill Swap Board</h2>
+  <ul id="swapBoard"></ul>
+
   <script src="script.js"></script>
 </body>
-</html>
