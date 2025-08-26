@@ -193,3 +193,24 @@ body {
   font-size: 1rem;
   color: #444;
 }
+/* WHY THIS MATTERS SECTION */
+.why-matters {
+  padding: 4rem 2rem;
+  background-color: #f9fafc;
+  text-align: center;
+  border-top: 1px solid #e0e0e0;
+}
+
+.why-matters h2 {
+  font-size: 2rem;
+  margin-bottom: 1rem;
+  color: #1f1f1f;
+}
+
+.impact-text {
+  max-width: 800px;
+  margin: 0 auto;
+  font-size: 1.1rem;
+  color: #444;
+  line-height: 1.8;
+}
