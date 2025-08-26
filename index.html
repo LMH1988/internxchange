@@ -1,16 +1,46 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>InternXchange | Peer Skill Swap</title>
+
+  <!-- Just pulling in a cleaner font so it doesn’t look like every other default project -->
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600;700&display=swap" rel="stylesheet">
+
+  <!-- Linking to the CSS so the thing actually looks good -->
+  <link rel="stylesheet" href="style.css" />
+</head>
+
 <body>
-  <h1>InternXchange</h1>
-  <p>A place to swap tech skills and experiences.</p>
 
-  <form id="swapForm">
-    <input type="text" id="name" placeholder="Your name" required>
-    <input type="text" id="offer" placeholder="I can offer..." required>
-    <input type="text" id="want" placeholder="I want to learn..." required>
-    <button type="submit">Add Me</button>
-  </form>
+  <!-- Hero section: this is the bold first impression bit -->
+  <header class="hero">
+    <div class="hero-content">
+      <!-- Main title — short and punchy -->
+      <h1>InternXchange</h1>
 
-  <h2>Skill Swap Board</h2>
-  <ul id="swapBoard"></ul>
+      <!-- Quick explainer that gives some vibe -->
+      <p class="tagline">Rewiring routes into tech — one peer swap at a time.</p>
 
+      <!-- Buttons to move people around the page -->
+      <div class="cta-buttons">
+        <a href="#swapBoard" class="btn primary">Add Your Skills</a>
+        <a href="#howItWorks" class="btn secondary">How It Works</a>
+      </div>
+    </div>
+  </header>
+
+  <!-- These sections are placeholders for now — will build them properly soon -->
+  <section id="howItWorks">
+    <!-- This will be where I break down how it works in a few easy steps -->
+  </section>
+
+  <section id="swapBoard">
+    <!-- Form and live skill swap board will drop in here -->
+  </section>
+
+  <!-- JS for later interactivity -->
   <script src="script.js"></script>
 </body>
+</html>
