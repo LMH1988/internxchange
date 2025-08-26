@@ -214,3 +214,17 @@ body {
   color: #444;
   line-height: 1.8;
 }
+// Search functionality
+document.getElementById("searchInput").addEventListener("input", function () {
+  const query = this.value.toLowerCase();
+  const listItems = document.querySelectorAll("#swapBoard li");
+
+  listItems.forEach(item => {
+    const text = item.textContent.toLowerCase();
+    if (text.includes(query)) {
+      item.style.display = "list-item";
+    } else {
+      item.style.display = "none";
+    }
+  });
+});
