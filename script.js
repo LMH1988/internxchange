@@ -2,15 +2,30 @@ document.addEventListener("DOMContentLoaded", function () {
   document.getElementById("swapForm").addEventListener("submit", function (e) {
     e.preventDefault();
 
-    const name = document.getElementById("name").value;
-    const offer = document.getElementById("offer").value;
-    const want = document.getElementById("want").value;
+    // Grab the values from the form
+    const name = document.getElementById("name").value.trim();
+    const offer = document.getElementById("offer").value.trim();
+    const want = document.getElementById("want").value.trim();
 
-    const listItem = document.createElement("li");
-    listItem.innerHTML = `<strong>${name}</strong> can offer <em>${offer}</em> and wants to learn <em>${want}</em>`;
+    // Make sure all fields are filled
+    if (!name || !offer || !want) return;
 
-    document.getElementById("swapBoard").appendChild(listItem);
+    // Create the card container
+    const card = document.createElement("div");
+    card.classList.add("swap-card");
 
-    this.reset(); // Clear form
+    // Build the inner HTML of the card
+    card.innerHTML = `
+      <h4 class="card-name">${name}</h4>
+      <p><strong>Can offer:</strong> ${offer}</p>
+      <p><strong>Wants to learn:</strong> ${want}</p>
+    `;
+
+    // Add the card to the board
+    document.getElementById("swapBoard").appendChild(card);
+
+    // Reset form
+    this.reset();
   });
 });
+
