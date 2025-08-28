@@ -1,7 +1,3 @@
-from pathlib import Path
-
-# Define the README content again after code execution reset
-readme_content = """
 # 🌐 InternXchange  
 **Peer-to-peer experience exchange for early tech talent**
 
