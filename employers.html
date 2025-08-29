@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Employer Ad Board | InternXchange</title>
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600;700&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="style.css" />
+</head>
+
+<body>
+  <!-- Navigation Bar -->
+  <nav class="navbar">
+    <div class="nav-container">
+      <a href="index.html" class="logo">InternXchange</a>
+      <ul class="nav-links">
+        <li><a href="index.html">Home</a></li>
+        <li><a href="profiles.html">Talent Profiles</a></li>
+        <li><a href="employers.html" class="active">Employer Board</a></li>
+      </ul>
+    </div>
+  </nav>
+
+  <!-- Employer Posting Area -->
+  <section class="employer-board">
+    <div class="container">
+      <h1>Post an Opportunity</h1>
+      <p class="tagline">Help shape the future of tech — one opportunity at a time.</p>
+
+      <form id="employerForm" class="employer-form">
+        <input type="text" id="company" placeholder="Company / Org Name" required />
+        <input type="text" id="role" placeholder="Opportunity Title" required />
+        <textarea id="description" placeholder="Brief description of the role/project" required></textarea>
+        <input type="text" id="skills" placeholder="Skills you're looking for (comma separated)" required />
+        
+        <label>
+          <input type="checkbox" id="paid" />
+          <span>This opportunity is paid</span>
+        </label>
+
+        <button type="submit">Post Opportunity</button>
+      </form>
+
+      <h2>Live Opportunities</h2>
+      <div id="opportunityList" class="opportunity-list">
+        <!-- Listings will appear here -->
+      </div>
+    </div>
+  </section>
+
+  <script src="employers.js"></script>
+</body>
+</html>
