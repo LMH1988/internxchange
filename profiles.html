@@ -5,19 +5,22 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>InternXchange | Meet the Talent</title>
 
-  <!-- Font and CSS from main site -->
+  <!-- Fonts + CSS -->
   <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600;700&display=swap" rel="stylesheet">
   <link rel="stylesheet" href="style.css" />
 
   <style>
-    /* Extra styling just for this page */
-    .profile-form, .profiles-grid {
+    /* Reusing your base style but upgrading it */
+    .profile-form,
+    .profiles-grid,
+    .search-filters {
       max-width: 1000px;
       margin: 2rem auto;
       padding: 1rem;
     }
 
-    .profile-form input, .profile-form textarea {
+    .profile-form input,
+    .profile-form textarea {
       width: 100%;
       padding: 0.8rem;
       margin-bottom: 1rem;
@@ -34,6 +37,23 @@
       border-radius: 8px;
       font-weight: 600;
       cursor: pointer;
+    }
+
+    .search-filters {
+      display: flex;
+      gap: 1rem;
+      justify-content: space-between;
+      flex-wrap: wrap;
+    }
+
+    .search-filters input,
+    .search-filters select {
+      flex: 1;
+      padding: 0.8rem;
+      border-radius: 8px;
+      border: 1px solid #ccc;
+      font-size: 1rem;
+      min-width: 200px;
     }
 
     .profiles-grid {
@@ -69,22 +89,30 @@
       text-decoration: none;
       font-weight: 500;
     }
+
+    .empty-state {
+      text-align: center;
+      font-style: italic;
+      color: #777;
+      margin-top: 2rem;
+    }
   </style>
 </head>
 
 <body>
-  <!-- Navigation Bar -->
-<nav class="navbar">
-  <div class="nav-container">
-    <a href="index.html" class="logo">InternXchange</a>
-    <ul class="nav-links">
-      <li><a href="index.html">Home</a></li>
-      <li><a href="profiles.html">Profiles</a></li>
-     <li><a href="employers.html" class="active">Employer Board</a></li>
-    </ul>
-  </div>
-</nav>
+  <!-- Nav -->
+  <nav class="navbar">
+    <div class="nav-container">
+      <a href="index.html" class="logo">InternXchange</a>
+      <ul class="nav-links">
+        <li><a href="index.html">Home</a></li>
+        <li><a href="profiles.html" class="active">Profiles</a></li>
+        <li><a href="employers.html">Employer Board</a></li>
+      </ul>
+    </div>
+  </nav>
 
+  <!-- Hero -->
   <header class="hero">
     <div class="hero-content">
       <h1>Meet the Talent</h1>
@@ -92,7 +120,20 @@
     </div>
   </header>
 
-  <!-- Form to create a profile -->
+  <!-- Filters -->
+  <section class="search-filters">
+    <input type="text" id="searchInput" placeholder="Search name, skills or intro...">
+    <select id="skillFilter">
+      <option value="">All Skills</option>
+      <option value="frontend">Frontend</option>
+      <option value="backend">Backend</option>
+      <option value="uiux">UI/UX</option>
+      <option value="cybersecurity">Cybersecurity</option>
+      <option value="data">Data</option>
+    </select>
+  </section>
+
+  <!-- Profile Form -->
   <section class="profile-form">
     <h2>Create Your Profile</h2>
     <form id="profileForm">
@@ -106,39 +147,84 @@
     </form>
   </section>
 
-  <!-- Grid of profile cards -->
+  <!--  Profile Cards -->
   <section class="profiles-grid" id="profilesGrid">
-    <!-- New profiles will show up here -->
+    <!-- Cards go here -->
   </section>
 
+  <!--  If no matches -->
+  <p id="noResults" class="empty-state" style="display: none;">No profiles match your search right now.</p>
+
   <script>
-    document.getElementById("profileForm").addEventListener("submit", function (e) {
+    const profilesGrid = document.getElementById("profilesGrid");
+    const noResults = document.getElementById("noResults");
+    const searchInput = document.getElementById("searchInput");
+    const skillFilter = document.getElementById("skillFilter");
+    const profileForm = document.getElementById("profileForm");
+
+    let profiles = [];
+
+    // Add new profile
+    profileForm.addEventListener("submit", function (e) {
       e.preventDefault();
 
-      const name = document.getElementById("profileName").value;
-      const offer = document.getElementById("profileOffer").value;
-      const want = document.getElementById("profileWant").value;
-      const bio = document.getElementById("profileBio").value;
-      const github = document.getElementById("profileGitHub").value;
-      const linkedin = document.getElementById("profileLinkedIn").value;
+      const newProfile = {
+        name: document.getElementById("profileName").value,
+        offer: document.getElementById("profileOffer").value.toLowerCase(),
+        want: document.getElementById("profileWant").value.toLowerCase(),
+        bio: document.getElementById("profileBio").value,
+        github: document.getElementById("profileGitHub").value,
+        linkedin: document.getElementById("profileLinkedIn").value
+      };
 
-      const card = document.createElement("div");
-      card.classList.add("profile-card");
-
-      card.innerHTML = `
-        <h3>${name}</h3>
-        <p><strong>Can offer:</strong> ${offer}</p>
-        <p><strong>Wants to learn:</strong> ${want}</p>
-        <p>${bio}</p>
-        <div class="profile-links">
-          ${github ? `<a href="${github}" target="_blank">GitHub</a>` : ""}
-          ${linkedin ? `<a href="${linkedin}" target="_blank">LinkedIn</a>` : ""}
-        </div>
-      `;
-
-      document.getElementById("profilesGrid").appendChild(card);
+      profiles.push(newProfile);
+      renderProfiles(profiles);
       this.reset();
     });
+
+    // Filter as user types/selects
+    searchInput.addEventListener("input", () => filterProfiles());
+    skillFilter.addEventListener("change", () => filterProfiles());
+
+    function filterProfiles() {
+      const keyword = searchInput.value.toLowerCase();
+      const skill = skillFilter.value.toLowerCase();
+
+      const filtered = profiles.filter(p =>
+        (p.name.toLowerCase().includes(keyword) ||
+         p.offer.includes(keyword) ||
+         p.want.includes(keyword) ||
+         p.bio.toLowerCase().includes(keyword)) &&
+        (skill === "" || p.offer.includes(skill) || p.want.includes(skill))
+      );
+
+      renderProfiles(filtered);
+    }
+
+    function renderProfiles(data) {
+      profilesGrid.innerHTML = "";
+      if (data.length === 0) {
+        noResults.style.display = "block";
+        return;
+      }
+
+      noResults.style.display = "none";
+      data.forEach(profile => {
+        const card = document.createElement("div");
+        card.classList.add("profile-card");
+        card.innerHTML = `
+          <h3>${profile.name}</h3>
+          <p><strong>Can offer:</strong> ${profile.offer}</p>
+          <p><strong>Wants to learn:</strong> ${profile.want}</p>
+          <p>${profile.bio}</p>
+          <div class="profile-links">
+            ${profile.github ? `<a href="${profile.github}" target="_blank">GitHub</a>` : ""}
+            ${profile.linkedin ? `<a href="${profile.linkedin}" target="_blank">LinkedIn</a>` : ""}
+          </div>
+        `;
+        profilesGrid.appendChild(card);
+      });
+    }
   </script>
 </body>
 </html>
