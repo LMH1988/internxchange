@@ -13,8 +13,18 @@
 </head>
 
 <body>
+<!-- Nav Bar -->
+<nav class="navbar">
+  <div class="nav-container">
+    <a href="index.html" class="logo">InternXchange</a>
+    <ul class="nav-links">
+      <li><a href="index.html">Home</a></li>
+      <li><a href="profiles.html">Profiles</a></li>
+    </ul>
+  </div>
+</nav>
 
-  <!-- 🔥 Hero: First impressions matter -->
+  <!-- Hero: First impressions matter -->
   <header class="hero">
     <div class="hero-content">
       <h1>InternXchange</h1>
@@ -28,7 +38,7 @@
     </div>
   </header>
 
-  <!-- 📚 How It Works Section -->
+  <!-- How It Works Section -->
   <section id="howItWorks" class="how-it-works">
     <h2>How It Works</h2>
     <div class="steps">
@@ -47,12 +57,12 @@
     </div>
   </section>
 
-  <!-- 🤝 Skill Swap Section -->
+  <!-- Skill Swap Section -->
   <section id="skillSwap" class="skill-swap">
     <h2>Join the Skill Swap Board</h2>
     <p>Whether you're just starting out or sharpening your skills — this is your space.</p>
 
-    <!-- 📝 Form to collect swap info -->
+    <!-- Form to collect swap info -->
     <form id="swapForm" class="swap-form" aria-label="Skill Swap Form">
       <input type="text" id="name" placeholder="Your name" required>
       <input type="text" id="offer" placeholder="I can offer..." required>
@@ -60,14 +70,14 @@
       <button type="submit">Add Me</button>
     </form>
 
-    <!-- 🧾 Live skill board to show submissions as profile cards -->
+    <!-- Live skill board to show submissions as profile cards -->
     <div class="board-container">
       <h3>Live Skill Swaps</h3>
       <div id="swapBoard" class="swap-board-cards"></div>
     </div>
   </section>
 
-  <!-- 💡 Why This Matters -->
+  <!-- Why This Matters -->
   <section class="why-matters" id="why">
     <h2>Why This Matters</h2>
     <div class="impact-text">
@@ -77,7 +87,7 @@
     </div>
   </section>
 
-  <!-- 🔗 Script to make the form actually do something -->
+  <!-- Script to make the form actually do something -->
   <script src="script.js"></script>
 </body>
 </html>
