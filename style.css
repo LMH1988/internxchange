@@ -1,4 +1,4 @@
-/* Clean font – nicer than Times New Roman vibes */
+/* Clean font nicer than Times New Roman vibes */
 body {
   margin: 0;
   font-family: 'Poppins', sans-serif;
@@ -6,7 +6,7 @@ body {
   color: #333;
 }
 
-/* Hero section — big intro, make it pop */
+/* Hero section big intro, make it pop */
 .hero {
   background: linear-gradient(135deg, #0f2027, #203a43, #2c5364); /* dark gradient = trust, techy feel */
   color: white;
@@ -20,13 +20,13 @@ body {
   margin: auto;
 }
 
-/* Main heading – bold, confident */
+/* Main heading bold, confident */
 .hero h1 {
   font-size: 3em;
   margin-bottom: 10px;
 }
 
-/* The tagline – smaller, but still important */
+/* The tagline smaller, but still important */
 .tagline {
   font-size: 1.3em;
   font-weight: 400;
@@ -50,7 +50,7 @@ body {
   transition: all 0.3s ease;
 }
 
-/* Main button — the one I want people to click most */
+/* Main button the one I want people to click most */
 .btn.primary {
   background-color: #00c9a7;
   color: #fff;
@@ -60,7 +60,7 @@ body {
   background-color: #00b395;
 }
 
-/* Secondary button — more chill, but still visible */
+/* Secondary button more chill, but still visible */
 .btn.secondary {
   background-color: transparent;
   border: 2px solid #fff;
@@ -341,7 +341,7 @@ document.getElementById("searchInput").addEventListener("input", function () {
 .profile-links a:hover {
   color: #008f7a;
 }
-/* 🧭 NAVIGATION BAR */
+/* NAVIGATION BAR */
 .navbar {
   background-color: #0f2027;
   color: white;
@@ -382,4 +382,103 @@ document.getElementById("searchInput").addEventListener("input", function () {
 
 .nav-links li a:hover {
   color: #00c9a7;
+}
+/* Employer Form Styling */
+.employer-section {
+  padding: 4rem 2rem;
+  background-color: #f5faff;
+  text-align: center;
+}
+
+.employer-section h2 {
+  font-size: 2.2rem;
+  margin-bottom: 1rem;
+  color: #1f1f1f;
+}
+
+.employer-section p {
+  font-size: 1rem;
+  margin-bottom: 2rem;
+  color: #555;
+}
+
+#employerForm {
+  display: flex;
+  flex-direction: column;
+  gap: 1rem;
+  max-width: 600px;
+  margin: 0 auto 3rem;
+}
+
+#employerForm input,
+#employerForm textarea,
+#employerForm button {
+  padding: 0.8rem;
+  font-size: 1rem;
+  border: 1px solid #ccc;
+  border-radius: 8px;
+  font-family: 'Poppins', sans-serif;
+}
+
+#employerForm textarea {
+  resize: vertical;
+  min-height: 100px;
+}
+
+#employerForm button {
+  background-color: #0077b6;
+  color: #fff;
+  font-weight: 600;
+  cursor: pointer;
+  transition: background 0.3s;
+}
+
+#employerForm button:hover {
+  background-color: #023e8a;
+}
+
+/* Employer Opportunity Cards */
+#opportunityList {
+  display: flex;
+  flex-direction: column;
+  gap: 1.5rem;
+  max-width: 900px;
+  margin: 0 auto;
+}
+
+.opportunity-card {
+  background-color: #ffffff;
+  padding: 1.5rem;
+  border-radius: 12px;
+  box-shadow: 0 2px 10px rgba(0, 0, 0, 0.05);
+  text-align: left;
+}
+
+.opportunity-card h3 {
+  margin: 0;
+  font-size: 1.5rem;
+  color: #0f2027;
+}
+
+.opportunity-card .company {
+  font-size: 1rem;
+  color: #555;
+  font-weight: normal;
+}
+
+.opportunity-card .description {
+  margin: 1rem 0;
+  color: #333;
+  line-height: 1.6;
+}
+
+.opportunity-card .paid-label {
+  font-weight: bold;
+  color: #0077b6;
+}
+
+.opportunity-card .timestamp {
+  font-size: 0.85rem;
+  color: #888;
+  margin-top: 0.5rem;
 }
