@@ -1,0 +1,132 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>InternXchange | Meet the Talent</title>
+
+  <!-- Font and CSS from main site -->
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="style.css" />
+
+  <style>
+    /* Extra styling just for this page */
+    .profile-form, .profiles-grid {
+      max-width: 1000px;
+      margin: 2rem auto;
+      padding: 1rem;
+    }
+
+    .profile-form input, .profile-form textarea {
+      width: 100%;
+      padding: 0.8rem;
+      margin-bottom: 1rem;
+      border: 1px solid #ccc;
+      border-radius: 8px;
+      font-size: 1rem;
+    }
+
+    .profile-form button {
+      padding: 0.8rem 2rem;
+      background-color: #0077b6;
+      color: white;
+      border: none;
+      border-radius: 8px;
+      font-weight: 600;
+      cursor: pointer;
+    }
+
+    .profiles-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+      gap: 1.5rem;
+    }
+
+    .profile-card {
+      background: white;
+      padding: 1.5rem;
+      border-radius: 12px;
+      box-shadow: 0 4px 12px rgba(0, 0, 0, 0.05);
+      transition: transform 0.3s ease;
+    }
+
+    .profile-card:hover {
+      transform: scale(1.02);
+    }
+
+    .profile-card h3 {
+      margin-top: 0;
+      color: #0077b6;
+    }
+
+    .profile-card p {
+      margin: 0.5rem 0;
+    }
+
+    .profile-links a {
+      margin-right: 1rem;
+      color: #00c9a7;
+      text-decoration: none;
+      font-weight: 500;
+    }
+  </style>
+</head>
+
+<body>
+  <header class="hero">
+    <div class="hero-content">
+      <h1>Meet the Talent</h1>
+      <p class="tagline">Real people. Real potential. More than just a CV.</p>
+    </div>
+  </header>
+
+  <!-- Form to create a profile -->
+  <section class="profile-form">
+    <h2>Create Your Profile</h2>
+    <form id="profileForm">
+      <input type="text" id="profileName" placeholder="Your Name" required />
+      <input type="text" id="profileOffer" placeholder="I can offer..." required />
+      <input type="text" id="profileWant" placeholder="I want to learn..." required />
+      <textarea id="profileBio" placeholder="Short personal intro..." required></textarea>
+      <input type="url" id="profileGitHub" placeholder="GitHub URL (optional)" />
+      <input type="url" id="profileLinkedIn" placeholder="LinkedIn URL (optional)" />
+      <button type="submit">Add Me</button>
+    </form>
+  </section>
+
+  <!-- Grid of profile cards -->
+  <section class="profiles-grid" id="profilesGrid">
+    <!-- New profiles will show up here -->
+  </section>
+
+  <script>
+    document.getElementById("profileForm").addEventListener("submit", function (e) {
+      e.preventDefault();
+
+      const name = document.getElementById("profileName").value;
+      const offer = document.getElementById("profileOffer").value;
+      const want = document.getElementById("profileWant").value;
+      const bio = document.getElementById("profileBio").value;
+      const github = document.getElementById("profileGitHub").value;
+      const linkedin = document.getElementById("profileLinkedIn").value;
+
+      const card = document.createElement("div");
+      card.classList.add("profile-card");
+
+      card.innerHTML = `
+        <h3>${name}</h3>
+        <p><strong>Can offer:</strong> ${offer}</p>
+        <p><strong>Wants to learn:</strong> ${want}</p>
+        <p>${bio}</p>
+        <div class="profile-links">
+          ${github ? `<a href="${github}" target="_blank">GitHub</a>` : ""}
+          ${linkedin ? `<a href="${linkedin}" target="_blank">LinkedIn</a>` : ""}
+        </div>
+      `;
+
+      document.getElementById("profilesGrid").appendChild(card);
+      this.reset();
+    });
+  </script>
+</body>
+</html>
