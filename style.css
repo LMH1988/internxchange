@@ -482,3 +482,85 @@ document.getElementById("searchInput").addEventListener("input", function () {
   color: #888;
   margin-top: 0.5rem;
 }
+/* Search and Filter Section */
+.search-filter-bar {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 1rem;
+  justify-content: center;
+  margin: 2rem 0;
+}
+
+.search-filter-bar input[type="text"],
+.search-filter-bar select {
+  padding: 0.8rem 1rem;
+  font-size: 1rem;
+  border-radius: 8px;
+  border: 1px solid #ccc;
+  min-width: 200px;
+}
+
+.search-filter-bar input:focus,
+.search-filter-bar select:focus {
+  outline: none;
+  border-color: #0077b6;
+}
+
+/* Opportunity Listings */
+.opportunity-list {
+  display: flex;
+  flex-direction: column;
+  gap: 1.5rem;
+  margin-top: 2rem;
+}
+
+.opportunity {
+  background: #ffffff;
+  padding: 1.5rem;
+  border-radius: 12px;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.05);
+  border-left: 5px solid #00c9a7;
+  transition: transform 0.2s ease;
+}
+
+.opportunity:hover {
+  transform: translateY(-4px);
+}
+
+.opportunity h3 {
+  margin: 0 0 0.5rem;
+  font-size: 1.3rem;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.opportunity p {
+  margin: 0.3rem 0;
+  color: #555;
+}
+
+/* Paid/Unpaid Labels */
+.label {
+  font-size: 0.75rem;
+  padding: 4px 8px;
+  border-radius: 6px;
+  font-weight: bold;
+  text-transform: uppercase;
+  color: #fff;
+}
+
+.label.paid {
+  background-color: #28a745;
+}
+
+.label.unpaid {
+  background-color: #dc3545;
+}
+
+/* Empty state message */
+.empty-state {
+  text-align: center;
+  color: #888;
+  font-style: italic;
+}
